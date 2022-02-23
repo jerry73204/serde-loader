@@ -1,6 +1,6 @@
 [package]
 name = "serde-loader"
-version = "0.1.2"
+version = "0.1.3"
 edition = "2021"
 description = "Serde wrapper to load/save serializable data from relative paths"
 documentation = "https://docs.rs/serde-loader/"
