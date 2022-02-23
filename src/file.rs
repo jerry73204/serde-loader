@@ -99,10 +99,7 @@ where
 }
 
 impl<T, Ser, De> FilePath<T, Ser, De> {
-    pub fn take(mut self) -> T
-    where
-        T: DeserializeOwned,
-    {
+    pub fn take(mut self) -> T {
         self.inner.take().unwrap().data
     }
 
