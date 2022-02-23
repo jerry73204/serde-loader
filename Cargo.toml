@@ -2,8 +2,12 @@
 name = "serde-loader"
 version = "0.1.0"
 edition = "2021"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+description = "Serde wrapper to load/save serializable data from relative paths"
+documentation = "https://docs.rs/serde-loader/"
+repository = "https://github.com/jerry73204/serde-loader.git"
+homepage = "https://github.com/jerry73204/serde-loader"
+readme = "README.md"
+license = "MIT"
 
 [dependencies]
 serde = { version = "1.0.136", features = ["derive"] }
