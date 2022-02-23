@@ -63,6 +63,14 @@ where
             _phantom: PhantomData,
         })
     }
+
+    pub fn open_and_take<P>(path: P) -> Result<T, Error<Infallible, De::Error>>
+    where
+        P: AsRef<Path>,
+        T: DeserializeOwned,
+    {
+        Ok(Self::open(path)?.take())
+    }
 }
 
 impl<T, Ser, De> FilePath<T, Ser, De>
