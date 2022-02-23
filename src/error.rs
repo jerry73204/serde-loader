@@ -7,6 +7,13 @@ pub enum Error<E1 = Infallible, E2 = Infallible> {
     FileLoad(FileLoadError<E2>),
 }
 
+impl<E1, E2> StdError for Error<E1, E2>
+where
+    E1: fmt::Debug + fmt::Display,
+    E2: fmt::Debug + fmt::Display,
+{
+}
+
 impl<E1, E2> fmt::Display for Error<E1, E2>
 where
     E1: fmt::Display,

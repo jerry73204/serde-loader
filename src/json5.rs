@@ -1,7 +1,7 @@
-use crate::common::*;
-use crate::file::FileDumper;
-use crate::file::FileLoader;
-use crate::file::FilePath;
+use crate::{
+    common::*,
+    file::{FileDumper, FileLoader, FilePath},
+};
 
 pub type Json5Path<T> = FilePath<T, Json5Dumper, Json5Loader>;
 

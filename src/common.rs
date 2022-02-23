@@ -5,16 +5,15 @@ pub use serde::{
     ser::Error as _,
     Deserialize, Deserializer, Serialize, Serializer,
 };
-pub use std::convert::Infallible;
-pub use std::error::Error as StdError;
-pub use std::marker::PhantomData;
 pub use std::{
     borrow::Cow,
     cell::RefCell,
-    convert::TryFrom,
+    convert::{Infallible, TryFrom},
+    error::Error as StdError,
     ffi::OsStr,
     fmt, fs, io,
     io::prelude::*,
+    marker::PhantomData,
     mem::ManuallyDrop,
     ops::{Deref, DerefMut},
     path::{Path, PathBuf},

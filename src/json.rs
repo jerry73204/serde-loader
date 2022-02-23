@@ -1,10 +1,9 @@
-use crate::common::*;
-use crate::file::FileDumper;
-use crate::file::FileLoader;
-use crate::file::FilePath;
+use crate::{
+    common::*,
+    file::{FileDumper, FileLoader, FilePath},
+};
 use fs::File;
-use io::BufReader;
-use io::BufWriter;
+use io::{BufReader, BufWriter};
 
 pub type JsonPath<T> = FilePath<T, JsonDumper, JsonLoader>;
 pub type JsonPrettyPath<T> = FilePath<T, JsonDumperPretty, JsonLoader>;
