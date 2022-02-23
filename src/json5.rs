@@ -5,6 +5,7 @@ use crate::{
 
 pub type Json5Path<T> = FilePath<T, Json5Dumper, Json5Loader>;
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct Json5Dumper {
     _private: [u8; 0],
 }
@@ -25,6 +26,7 @@ where
     }
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct Json5Loader {
     _private: [u8; 0],
 }

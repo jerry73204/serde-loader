@@ -6,6 +6,7 @@ use prost::Message;
 
 pub type ProtobufPath<T> = FilePath<T, ProtobufDumper, ProtobufLoader>;
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct ProtobufDumper {
     _private: [u8; 0],
 }
@@ -26,6 +27,7 @@ where
     }
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct ProtobufLoader {
     _private: [u8; 0],
 }

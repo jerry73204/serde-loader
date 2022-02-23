@@ -8,6 +8,7 @@ use io::{BufReader, BufWriter};
 pub type JsonPath<T> = FilePath<T, JsonDumper, JsonLoader>;
 pub type JsonPrettyPath<T> = FilePath<T, JsonDumperPretty, JsonLoader>;
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct JsonDumper {
     _private: [u8; 0],
 }
@@ -29,6 +30,7 @@ where
     }
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct JsonDumperPretty {
     _private: [u8; 0],
 }
@@ -50,6 +52,7 @@ where
     }
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct JsonLoader {
     _private: [u8; 0],
 }
