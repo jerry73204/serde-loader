@@ -77,6 +77,44 @@ impl<T, Ser, De> FilePath<T, Ser, De>
 where
     Ser: FileDumper<T>,
 {
+    pub fn create<P>(path: P, data: T) -> Result<Self, Error<Ser::Error, Infallible>>
+    where
+        P: AsRef<Path>,
+        T: DeserializeOwned,
+    {
+        let ref_path = path.as_ref();
+        let abs_path = try_rebase_path(ref_path).into_owned();
+
+        let parent = abs_path
+            .parent()
+            .ok_or_else(|| {
+                io::Error::new(
+                    io::ErrorKind::NotFound,
+                    format_err!(
+                        "unable to find parent directory of '{}'",
+                        abs_path.display()
+                    ),
+                )
+            })?
+            .to_owned();
+
+        with_rebased_dir(parent, || {
+            Ser::dump(&abs_path, &data).map_err(|error| FileDumpError {
+                error,
+                path: abs_path.to_path_buf(),
+            })
+        })?;
+
+        Ok(Self {
+            inner: Some(Inner {
+                data,
+                ref_path: ref_path.to_path_buf(),
+                abs_path,
+            }),
+            _phantom: PhantomData,
+        })
+    }
+
     pub fn save(&self) -> Result<(), Error<Ser::Error, Infallible>>
     where
         T: Serialize,
