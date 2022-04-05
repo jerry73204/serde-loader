@@ -96,7 +96,7 @@ where
             .to_owned();
 
         with_rebased_dir(parent, || {
-            Ser::dump(&abs_path, self).map_err(|error| FileDumpError {
+            Ser::dump(&abs_path, &self.inner().data).map_err(|error| FileDumpError {
                 error,
                 path: abs_path.to_path_buf(),
             })
