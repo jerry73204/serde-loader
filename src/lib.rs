@@ -138,3 +138,8 @@ pub mod json;
 pub use self::json5::Json5Path;
 #[cfg(feature = "json5")]
 pub mod json5;
+
+#[cfg(feature = "yaml")]
+pub use self::yaml::YamlPath;
+#[cfg(feature = "yaml")]
+pub mod yaml;
